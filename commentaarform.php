@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+
 
 <style>
  #container{
@@ -14,6 +14,7 @@
     align-items: center;
  }
 </style>
+</head>
 
 <body>
 
@@ -69,6 +70,14 @@ function test_input($data) {
 $sql_fetch_comments = "SELECT * FROM alles";
 $result = $conn->query($sql_fetch_comments);
 
+if ($conn->query($sql) === TRUE) {
+    echo "";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+
+
 if ($result->num_rows > 0) {
     echo "<h2>Comments:</h2>";
     while ($row = $result->fetch_assoc()) {
@@ -80,6 +89,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "<p>No comments yet.</p>";
 }
+$conn->close();
 ?>
 
 </div>
