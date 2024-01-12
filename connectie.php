@@ -1,4 +1,5 @@
 <?php 
+//dit stukje code is alleen voor het koppelen van de database met de website
 
 $servername = "localhost"; 
 $username = "root"; 
