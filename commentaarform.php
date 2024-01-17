@@ -8,7 +8,7 @@
 <!--style is voor de opmaak
 dit zorgt ervoor dat de video en de tekst mooi in het midden komt. -->
 <style> 
- #container{
+ #container {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -60,8 +60,12 @@ elseif (empty($commentaar)) {
     } else{ //maakt de sql klaar voor de reacties
         $sql = "INSERT INTO alles (naam, email, commentaar)
                 VALUES ('$naam', '$email', '$commentaar')";
-    }
-}
+        
+        // De query wordt uitgevoerd met de volgende code
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        }
+}}
      
 function test_input($data) { 
     $data = trim($data);
@@ -73,10 +77,10 @@ function test_input($data) {
 $sql_fetch_comments = "SELECT * FROM alles";
 $result = $conn->query($sql_fetch_comments);
 //voert de sql query uit
-if ($conn->query($sql) === TRUE) {
+if ($conn->query($sql_fetch_comments) === TRUE) {
     echo "";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql_fetch_comments . "<br>" . $conn->error;
 }
 
 
